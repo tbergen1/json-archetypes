@@ -15,7 +15,7 @@ module.exports.run = function(callback) {
 
 	test('****** Test Receipt Archetype Schema', function(t) {
 		validator.validateSchema(DATs.schemas.receipt, function(err, report) {
-			t.equal(report.valid, true, 'No schema formatting errors');
+			t.equal(report.valid, true, 'Schema is valid per JSON Schema v4');
 			t.end();
 		});
 	});

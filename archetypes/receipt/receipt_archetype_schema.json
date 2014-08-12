@@ -3,38 +3,107 @@
 	"title": "Receipt Schema",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["product_id", "transaction_date", "amount"],
+	"required": ["transaction_date", "total_price"],
 	"properties": {
-		"product_id": {
-			"description": "The unique identifier of the product which was purchased",
-			"type": "string"
-		},
 		"transaction_date": {
 			"type": "string",
 			"description": "Date and time of the transaction in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
 			"format": "date"
 		},
-		"price": {
+		"price_total": {
 			"type": "number",
+			"description": "Total purchase price in cents as an integer (whole number)",
 			"minimum": 0,
 			"default": 0
 		},
-		"quantity": {
+		"price_shipping": {
 			"type": "number",
+			"description": "Total shipping cost in cents as an integer (whole number)",
 			"minimum": 0,
 			"default": 0
+		},
+		"price_tax": {
+			"type": "number",
+			"description": "Total sales tax in cents as an integer (whole number)",
+			"minimum": 0,
+			"default": 0
+		},
+		"currency": {
+			"enum": ["AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BOV", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", "CAD", "CDF", "CHE", "CHF", "CHW", "CLF", "CLP", "CNY", "COP", "COU", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "SSP", "STD", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "USN", "USS", "UYI", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XBA", "XBB", "XBC", "XBD", "XCD", "XDR", "XFU", "XOF", "XPD", "XPF", "XPT", "XTS", "XXX", "YER", "ZAR", "ZMW"],
+			"description": "ISO 4217 currency code"
+		},
+		"paid": {
+			"type": "boolean",
+			"description": "Boolean to indicate whether the receipt has been paid for"
+		},
+		"shipped": {
+			"type": "boolean",
+			"description": "Boolean to indicate whether the order has been shipped"
 		},
 		"notes": {
-			"description": "Notes on the order or purchase of the product",
-			"type": "string"
+			"type": "string",
+			"description": "Order notes from the customer who purchased the product"
+		},
+		"discount_code": {
+			"type": "string",
+			"description": "Coupon or promotional code used, if any"
+		},
+		"discount_percentage": {
+			"type": "number",
+			"description": "A number percentage discount to be applied to the order",
+			"minimum": 0
+		},
+		"products": {
+			"type": "array",
+			"description": "An array of the products purchased",
+			"additionalItems": false,
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"product_id": {
+						"type": "string",
+						"description": "Unique identifier of the product purchased"
+					},
+					"price": {
+						"type": "integer",
+						"description": "Product price in cents as an integer (whole number)",
+						"minimum": 0,
+						"maximum": 999999999999999,
+						"default": 0
+					},
+					"quantity": {
+						"type": "integer",
+						"description": "Quantity of the purchased product",
+						"default": 1
+					}
+				}
+			}
 		},
 		"customer": {
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
-				"first_name": {},
-				"last_name": {},
-				"card_type": {},
+				"first_name": {
+					"type": "string",
+					"description": "First name of the buyer"
+				},
+				"last_name": {
+					"type": "string",
+					"description": "Last name of the buyer"
+				},
+				"payment_method": {
+					"enum": ["pp", "cc", "ck", "mo", "other"],
+					"description": "The payment method used. May be pp, cc, ck, mo, or other (stands for paypal, credit card, check, money order, other)"
+				},
+				"email": {
+					"type": "string",
+					"description": "Email address of the buyer"
+				},
+				"phone_number": {
+					"type": "string",
+					"description": "Phone number of the buyer"
+				},
 				"address_billing": {
 					"type": "object",
 					"additionalProperties": false,
@@ -43,13 +112,13 @@
 							"type": "string",
 							"description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
 						},
-						"postalCode": {
+						"postal_code": {
 							"type": "string"
 						},
 						"city": {
 							"type": "string"
 						},
-						"countryCode": {
+						"country_code": {
 							"type": "string",
 							"description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
 						},
@@ -63,18 +132,26 @@
 					"type": "object",
 					"additionalProperties": false,
 					"properties": {
+						"first_name": {
+							"type": "string",
+							"description": "First name of the person the product(s) will be shipped to"
+						},
+						"last_name": {
+							"type": "string",
+							"description": "Last name of the person the product(s) will be shipped to"
+						},
 						"address": {
 							"type": "string",
 							"description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
 						},
-						"postalCode": {
+						"postal_code": {
 							"type": "string"
 						},
 						"city": {
 							"type": "string"
 						},
-						"countryCode": {
-							"type": "string",
+						"country_code": {
+							"enum": ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "CI", "HR", "CU", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "AN", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RE", "RO", "RU", "RW", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SK", "SI", "SB", "SO", "ZA", "GS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW"],
 							"description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
 						},
 						"region": {
