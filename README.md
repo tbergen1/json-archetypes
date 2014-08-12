@@ -65,6 +65,14 @@ Anyone who has a Data Archetype in mind, or wants to add to existing Data Archet
 More on how to contribute [here](https://guides.github.com/activities/contributing-to-open-source/).
 
 ##F.A.Q.
+###How Is This Different From Schema.org?
+Schema.org is different because their JSON schemas are intended to be used in HTML mark-up for search engines.
+
+Data Archetype schemas do not have properties that pertain to use cases (e.g., SEO data).  Instead Data Archetypes contain only properties commonly associated with the content, that help differentiate it from other types of data (e.g., Products have a *price*, Blog Posts have a *title*).
+
+Data Archetypes are meant to be lean and flexible in all scenarios.  What use would SEO properties have if the data is being used in a mobile application?  Attaching properties to the Archetypes for infinite use cases would result in infinite bloat.
+
+Applications should convert Data Archetypes to Schema.org schemas, if that application deals with HTML mark-up and SEO, leaving the Data Archetype lean so that it can be used simultaneously in other apps.
 ###As a Developer, Data Archetypes are not robust enough for my application and I need to store more data than Data Archetypes can hold (e.g. SEO data).  What should I do?
 This is the most popular question and rightfully so.  You want to build a awesome application, but using Data Archetypes feels limiting...
 
