@@ -6,7 +6,7 @@ var test_product_archetype = require('./test_product_archetype');
 var test_receipt_archetype = require('./test_receipt_archetype');
 var test_image_archetype = require('./test_image_archetype');
 
-// Test Array
+// Tests Array
 var tests = [
 	test_product_archetype,
 	test_receipt_archetype,
