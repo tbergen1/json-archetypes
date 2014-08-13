@@ -109,9 +109,10 @@ module.exports.run = function(callback) {
 			t.equal(typeof errors.upc !== 'undefined', true);
 			t.equal(typeof errors.shipping_prices !== 'undefined', true);
 			t.end();
-			// Test Callback
-			callback();
 		});
 	});
+
+	// Test Callback
+	callback();
 
 }

@@ -1,0 +1,12 @@
+module.exports = {
+    description: '',
+    title: '',
+    caption: '',
+    author: '',
+    author_profile: '',
+    project_file: '',
+    resolution_original: '',
+    resolution_large: '',
+    resolution_medium: '',
+    resolution_small: ''
+}

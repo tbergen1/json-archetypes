@@ -13,8 +13,8 @@ module.exports.run = function(callback) {
 	 * Receipt Archetype Schema Test
 	 */
 
-	test('****** Test Receipt Archetype Schema', function(t) {
-		validator.validateSchema(DATs.schemas.receipt, function(err, report) {
+	test('****** Test Image Archetype Schema', function(t) {
+		validator.validateSchema(DATs.schemas.image, function(err, report) {
 			t.equal(report.valid, true, 'Schema is valid per JSON Schema v4');
 			t.end();
 		});
