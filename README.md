@@ -96,5 +96,8 @@ Occasionally, you may not be able to find room to squeeze in obscure details.  O
 
 **Yes, you may miss a small detail, but more importantly, you will be able to show and use your data EVERYWHERE.**
 
+###I just found [this comic on XKCD](http://xkcd.com/927/) and it’s totally relevant bro.  If I paste it in here, will I be clever?
+Yes, no one has ever done that before.  You rule.
 
+...But now the rest of us have to get back to solving sh*t.
 
