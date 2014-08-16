@@ -2,9 +2,6 @@
  *  Data Archetypes – JSON standards for common types of data
  */
 
-var productValidator = require('./archetypes/product/product_archetype_validator');
-var productInstance = require('./archetypes/product/product_archetype_instance');
-
 // Constructor
 function DataArchetypes() {
 	// Add Schemas
