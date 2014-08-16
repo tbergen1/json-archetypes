@@ -7,7 +7,7 @@
 **Data should be able to flow fast and freely between multiple applications...**  
 The web is polluted with incompatible data objects.  To fix this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing distribution and productivity of their data.  
 
-JSON Archetypes aim to be the most perfect representations of common.  Each Archetype includes properties only necessary to define and differentiate it from other types of data, and they purposely exclude properties needed for specific use-cases.
+JSON Archetypes aim to be the most perfect representations of popular types of data.  Each Archetype includes properties only necessary to define and differentiate it from other types of data, and purposely excludes properties needed for specific use-cases.
 
 ##Goals
 #####**Allow Your Users To Import Their Pre-Existing Data Into Your App Instantly**
