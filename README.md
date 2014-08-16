@@ -1,6 +1,6 @@
 #JSON Archetypes
 
-###Open-source JSON models for common types of data.
+###Open-Source JSON Models For Popular Types Of Data.
 
 ##Mission
   
