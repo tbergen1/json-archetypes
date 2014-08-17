@@ -9,6 +9,7 @@ function DataArchetypes() {
 	this.schemas.product = require('./archetypes/product/product_archetype_schema');
 	this.schemas.receipt = require('./archetypes/receipt/receipt_archetype_schema');
 	this.schemas.image = require('./archetypes/image/image_archetype_schema');
+	this.schemas.task = require('./archetypes/task/task_archetype_schema');
 };
 
 // Add Methods
