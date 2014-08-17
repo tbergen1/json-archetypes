@@ -18,15 +18,21 @@
 			"description": "Boolean to indicate whether the task has been completed",
 			"default": false
 		},
-		"category": {
+		"list": {
 			"type": "string",
-			"description": "Category for the task",
+			"description": "The list this task belongs to",
+			"maxLength": 300,
+			"default": ""
+		},
+		"parent_task": {
+			"type": "string",
+			"description": "ID of another task that this task belongs to",
 			"maxLength": 100,
 			"default": ""
 		},
-		"subcategory": {
+		"category": {
 			"type": "string",
-			"description": "Subcategory for the task",
+			"description": "Category for the task",
 			"maxLength": 100,
 			"default": ""
 		},
@@ -49,12 +55,6 @@
 			"minimum": 0,
 			"maximum": 100,
 			"default": 0
-		},
-		"parent_task": {
-			"type": "string",
-			"description": "ID of another task that this task belongs to",
-			"maxLength": 100,
-			"default": ""
 		},
 		"asignees": {
 			"type": "array",
