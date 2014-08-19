@@ -16,6 +16,12 @@ module.exports.run = function(callback) {
 		});
 	});
 
+	test('****** Test Product Archetype Instantiation', function(t) {
+		var product = JATs.new('product');
+		t.equal(typeof product.title !== 'undefined', true);
+		t.end();
+	});
+
 	test('****** Test Product Archetype Validator - Empty Object', function(t) {
 
 		var instance = {};

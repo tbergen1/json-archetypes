@@ -54,23 +54,16 @@
 			"maximum": 100,
 			"default": 0
 		},
-		"asignees": {
+		"assignees": {
 			"type": "array",
 			"description": "People whom this task has been assigned to",
+			"maxItems": 30,
 			"uniqueItems": true,
 			"additionalItems": false,
-			"maxItems": 30,
 			"default": [],
 			"items": {
-				"type": "object",
-				"additionalProperties": false,
-				"properties": {
-					"asignee": {
-						"type": "string",
-						"description": "Person or entity to whom the task is assigned to",
-						"default": ""
-					}
-				}
+				"type": "string",
+				"default": ""
 			}
 		}
 	}
