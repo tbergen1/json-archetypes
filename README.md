@@ -29,6 +29,22 @@ Imagine an internet where we can instantly port our pre-existing data into new a
 
 ***STATUS: This is currently a work in progress.  We are waiting to recieve feedback on these before launching JSON Archetypes Version 1***
 
+To use in Node.js...
+
+    npm install json-archetypes
+    
+    var JATs = require('json-archetypes');
+    
+    var product = {
+		title: 'White Gloves',
+		price: 2000,
+		seller: 'Fancy Shop'
+	};
+
+	JATs.validateProduct(product, function(errors, product) {
+	    console.log(errors, product);
+	});
+
 Each JSON Archetype uses the [JSON Schema](http://json-schema.org "http://json-schema.org") format to describe the Archetype and its validation rules.  All of the Archetypes can be found in the `archetypes` folder.  JSON Archetypes focus on are meant to be lean and contain only the essential properties/attributes that define and differentiate types of data.  The challenge is to agree on what those properties/attributes are...
 
 **This Repo contains the following:**
