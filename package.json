@@ -1,7 +1,7 @@
 {
   "name": "json-archetypes",
   "author": "Austen Collins",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Open-source JSON Models For Popular Types Of Data",
   "main": "index.js",
   "repository": {

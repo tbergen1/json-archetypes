@@ -1,5 +1,5 @@
 /**
- * Clean, comprehensible validator for the task Archetype
+ * Clean, comprehensible validator for the Task Archetype
  */
 
 var Utils = require('../../utils');
