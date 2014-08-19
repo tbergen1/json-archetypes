@@ -3,7 +3,7 @@
 	"title": "Task Schema",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["task", "completed"],
+	"required": ["task", "status"],
 	"properties": {
 		"task": {
 			"type": "string",
@@ -11,7 +11,7 @@
 			"maxLength": 4000,
 			"default": ""
 		},
-		"completed": {
+		"status": {
 			"enum": ["not completed", "completed", "on hold"],
 			"description": "Three options in string format to describe status of the task",
 			"default": "not completed"
@@ -31,7 +31,7 @@
 		"category": {
 			"type": "string",
 			"description": "Category for the task",
-			"maxLength": 100,
+			"maxLength": 50,
 			"default": ""
 		},
 		"due_date": {

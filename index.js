@@ -21,3 +21,4 @@ module.exports.archetypes = archetypes;
  */
 
 module.exports.validateProduct = require('./archetypes/product/product_archetype_validation'); 
+module.exports.validateTask = require('./archetypes/task/task_archetype_validation'); 
