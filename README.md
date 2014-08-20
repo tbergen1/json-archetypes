@@ -12,9 +12,6 @@ JSON Archetypes aim to be the most perfect representations of popular types of d
 ##Goals
 #####**Allow Your Users To Import Their Pre-Existing Data Into Your App Instantly**
 It's hard enough to get users.  Especially when they have to manually enter the same ol' content (Products, Blog Posts, etc..) within your app.  Using JSON Archetypes they can import their data instantly, and get on with using what you've built!  
-
-#####**Easy Validations**
-We've written validation rules right into each Archetype so you don't have to!
   
 #####**Write Less Code**
 C'mon, are you really going to model yet another *Product* or *Blog Post* data object?  Together, we can build perfect representations of those, that should serve most use-cases.
@@ -34,16 +31,8 @@ To use in Node.js...
     npm install json-archetypes
     
     var JATs = require('json-archetypes');
-    
-    var product = {
-		title: 'White Gloves',
-		price: 2000,
-		seller: 'Fancy Shop'
-	};
 
-	JATs.validateProduct(product, function(errors, product) {
-	    console.log(errors, product);
-	});
+    var taskSchema = JATs.archetypes.task;
 
 Each JSON Archetype uses the [JSON Schema](http://json-schema.org "http://json-schema.org") format to describe the Archetype and its validation rules.  All of the Archetypes can be found in the `archetypes` folder.  JSON Archetypes focus on are meant to be lean and contain only the essential properties/attributes that define and differentiate types of data.  The challenge is to agree on what those properties/attributes are...
 
