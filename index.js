@@ -29,10 +29,3 @@ module.exports.new = function(name) {
 	}
 	return instance;
 };
-
-/**
- * Add Validators
- */
-
-module.exports.validateProduct = require('./archetypes/product/product_archetype_validation');
-module.exports.validateTask = require('./archetypes/task/task_archetype_validation');

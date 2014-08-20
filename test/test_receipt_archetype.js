@@ -16,12 +16,6 @@ module.exports.run = function(callback) {
 		});
 	});
 
-	test('****** Test Receipt Archetype Instantiation', function(t) {
-		var receipt = JATs.new('receipt');
-		t.equal(typeof receipt.price_total !== 'undefined', true);
-		t.end();
-	});
-
 	// Test Callback
 	callback();
 

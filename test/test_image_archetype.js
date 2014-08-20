@@ -16,11 +16,6 @@ module.exports.run = function(callback) {
 		});
 	});
 
-	test('****** Test Image Archetype Instantiation', function(t) {
-		var image = JATs.new('image');
-		t.equal(typeof image.title !== 'undefined', true);
-		t.end();
-	});
 
 	// Test Callback
 	callback();
