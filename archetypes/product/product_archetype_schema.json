@@ -92,14 +92,15 @@
 			"items": {
 				"type": "object",
 				"additionalProperties": false,
-				"required": ["variation", "in_stock"],
+				"required": ["variation_title", "variation_in_stock"],
 				"properties": {
-					"variation": {
+					"variation_title": {
 						"type": "string",
 						"description": "Title or simple description of the variation",
+						"maxLength": 100,
 						"default": ""
 					},
-					"in_stock": {
+					"variation_in_stock": {
 						"type": "boolean",
 						"description": "Whether this specific variation is in stock or not",
 						"default": true
@@ -114,6 +115,7 @@
 			"default": [],
 			"items": {
 				"type": "string",
+				"maxLength": 30,
 				"default": ""
 			}
 		},
@@ -124,6 +126,7 @@
 			"default": [],
 			"items": {
 				"type": "string",
+				"maxLength": 30,
 				"default": ""
 			}
 		},
