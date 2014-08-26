@@ -59,25 +59,33 @@
 				"type": "object",
 				"additionalProperties": false,
 				"properties": {
-					"original": {
+					"image_original": {
 						"type": "string",
 						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at the original resolution it had when it was uploaded",
-						"default": ""
+						"default": "",
+						"format": "uri",
+						"maxLength": 500
 					},
-					"large": {
+					"image_large": {
 						"type": "string",
 						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at large resolution (640px x 640px)",
-						"default": ""
+						"default": "",
+						"format": "uri",
+						"maxLength": 500
 					},
-					"medium": {
+					"image_medium": {
 						"type": "string",
 						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at medium resolution (240px x 240px)",
-						"default": ""
+						"default": "",
+						"format": "uri",
+						"maxLength": 500
 					},
-					"small": {
+					"image_small": {
 						"type": "string",
 						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at large resolution (64px x 64px)",
-						"default": ""
+						"default": "",
+						"format": "uri",
+						"maxLength": 500
 					}
 				}
 			}
