@@ -48,46 +48,24 @@
 			"maxLength": 5000,
 			"default": ""
 		},
+		"primary_image": {
+			"type": "string",
+			"description": "Image Archetype ID to use as the primary image of this product",
+			"maxLength": 50,
+			"default": ""
+		},
 		"images": {
 			"type": "array",
-			"description": "Product images with consistent resolutions",
+			"description": "Array of Image Archetype IDs",
 			"uniqueItems": true,
 			"additionalItems": false,
 			"default": [],
 			"maxItems": 15,
 			"items": {
-				"type": "object",
-				"additionalProperties": false,
-				"properties": {
-					"image_original": {
-						"type": "string",
-						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at the original resolution it had when it was uploaded",
-						"default": "",
-						"format": "uri",
-						"maxLength": 500
-					},
-					"image_large": {
-						"type": "string",
-						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at large resolution (640px x 640px)",
-						"default": "",
-						"format": "uri",
-						"maxLength": 500
-					},
-					"image_medium": {
-						"type": "string",
-						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at medium resolution (240px x 240px)",
-						"default": "",
-						"format": "uri",
-						"maxLength": 500
-					},
-					"image_small": {
-						"type": "string",
-						"description": "URL (as per RFC 3986) to a picture in JPEG or PNG format at large resolution (64px x 64px)",
-						"default": "",
-						"format": "uri",
-						"maxLength": 500
-					}
-				}
+				"type": "string",
+				"description": "Image Archetype ID",
+				"maxLength": 50,
+				"default": ""
 			}
 		},
 		"variations": {
