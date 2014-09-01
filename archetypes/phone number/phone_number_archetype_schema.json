@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Phone Number Schema",
+    "description": "The Phone Number Archetype - Essential properties that define a phone number",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["phone_number"],
+    "properties": {
+    		"phone_number": {
+    				"type": "string",
+    				"maxLength": 10,
+    				"default": ""
+    		},
+    		"_id": {
+					"type": "string",
+					"description": "Unique identifier for this email address",
+					"maxLength": 50,
+					"default": ""
+			},
+			"created": {
+					"type": "string",
+					"description": "Date and time the email address was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			},
+			"updated": {
+					"type": "string",
+					"description": "Date and time the email address was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			}
+		}
+	}

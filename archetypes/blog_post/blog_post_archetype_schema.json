@@ -1,0 +1,111 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Blog Post Schema",
+    "description": "The Blog Post Archetype - Essential properties that define a blog post",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["title, body"],
+    "properties": {
+    		"title": {
+					"type": "string",
+					"description": "Title of the blog post",
+					"maxLength": 250,
+					"default": ""
+			},
+			"body": {
+					"type": "string",
+					"description": "Main text of the blog post",
+					"maxLength": 20000,
+					"default": ""
+			},
+			"author" : {
+					"type": "string",
+					"description": "Name of the author",
+					"maxLength": 140,
+					"default": ""
+			},
+			"author_info": {
+					"type": "string",
+					"description": "Link to the author's profile",
+					"format": "uri",
+					"default": ""
+			},
+			"category": {
+					"type": "string",
+					"description": "General category of the blog post, e.g. Programming",
+					"maxLength": 40,
+					"default": ""
+			},
+			"subcategory": {
+					"type": "string",
+					"description": "Specific category of the blog post, e.g. Javascript",
+					"maxLength": 40,
+					"default": ""
+			},
+			"audience": {
+					"type": "array",
+					"maxItems": 4,
+					"uniqueItems": true,
+					"default": [],
+					"items": {
+							"type": "string",
+							"maxLength": 30,
+							"default": ""
+					}
+			},
+			"publish_date": {
+					"type": "string",
+					"description": "Date and time of publication in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			},
+			"tags": {
+					"type": "array",
+					"maxItems": 6,
+					"uniqueItems": true,
+					"default": [],
+					"items": {
+							"type": "string",
+							"maxLength": 30,
+							"default": ""
+					}
+			},
+			"video_archtype": {
+					"$ref": "video_archetype_schema.json",
+					"description": "Video Archetype ID to use as the video of this blog post"
+			},
+			"thumbnail_image_archetype": {
+					"$ref": "image_archetype_schema.json",
+					"description": "Image Archetype ID to use as the thumbnail image of this blog post",
+			},
+			"image_archetypes": {
+					"type": "array",
+					"description": "Array of Image Archetype IDs",
+					"uniqueItems": true,
+					"additionalItems": false,
+					"default": [],
+					"maxItems": 15,
+					"items": {
+							"$ref": "image_archetype_schema.json"
+					}
+			},
+			"_id": {
+					"type": "string",
+					"description": "Unique identifier for this blog post",
+					"maxLength": 50,
+					"default": ""
+			},
+			"created": {
+					"type": "string",
+					"description": "Date and time the blog post was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			},
+			"updated": {
+					"type": "string",
+					"description": "Date and time the blog post was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			}
+		}
+	}

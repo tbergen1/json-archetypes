@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Small Text Schema",
+    "description": "The Small Text Archetype - Essential properties that define small text",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["body"],
+    "properties": {
+    		"body": {
+    				"type": "string",
+					"description": "The main text of the small text entry",
+					"maxLength": 140,
+					"default": ""
+    		},
+    		"URL": {
+    				"type": "string",
+					"description": "URL included in a small text entry",
+					"format": "uri",
+					"maxLength": 140,
+					"default": ""
+    		},
+    		"image_archetype": {
+    				"$ref": "image_archetype_schema.json",
+					"description": "Image Archetype ID to use as the image of this small text entry",
+			},
+			"video_archetype": {
+    				"$ref": "video_archetype_schema.json",
+					"description": "Video Archetype ID to use as the video of this small text entry",
+			},
+    		"_id": {
+					"type": "string",
+					"description": "Unique identifier for this small text entry",
+					"maxLength": 50,
+					"default": ""
+			},
+			"created": {
+					"type": "string",
+					"description": "Date and time the small text entry was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			},
+			"updated": {
+					"type": "string",
+					"description": "Date and time the small text tenry was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			}
+		}
+	}
