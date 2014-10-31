@@ -1,15 +1,21 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "Contact Schema",
-    "description": "The Contact Archetype - Essential properties that define a contact",
+    "title": "Person Schema",
+    "description": "The Person Archetype - Essential properties that define a person",
     "type": "object",
     "additionalProperties": false,
     "required": [""],
     "properties": {
+            "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for this person",
+                    "maxLength": 50,
+                    "default": ""
+            },
     		"name": {
-    			"type": "string",
-    			"maxLength": 50,
-    			"default": ""
+    			    "type": "string",
+    			    "maxLength": 50,
+    			    "default": ""
     		},
     		"email_address": {
 					"type": "string",
@@ -22,56 +28,50 @@
     				"maxLength": 20,
     				"default": ""
     		},
-    		"contact_address": {
+    		"person_address": {
     				"type": "string",
     				"description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.",
     				"maxLength": 100,
     				"default": ""
     		},
-    		"contact_city": {
+    		"person_city": {
     				"type": "string",
-    				"description": "The city or town where the contact is located.",
+    				"description": "The city or town where the person is located.",
     				"maxLength": 100,
     				"default": ""
     		},
-    		"contact_region": {
+    		"person_region": {
     				"type": "string",
-    				"description": "The general region where the contact is located.  Can be a US state, or a province, for instance.",
+    				"description": "The general region where the person is located.  Can be a US state, or a province, for instance.",
     				"maxLength": 100,
     				"default": ""
     		},
-    		"contact_postal_code": {
+    		"person_postal_code": {
     				"type": "string",
     				"maxLength": 30,
     				"default": ""
     		},
     		"category": {
 					"type": "string",
-					"description": "General category of the contact, e.g. Friends, Family, etc.",
+					"description": "General category of the person, e.g. Friends, Family, etc.",
 					"maxLength": 40,
 					"default": ""
 			},
 			"subcategory": {
 					"type": "string",
-					"description": "Specific category of the contact, e.g. Best Friends, Parent, etc",
+					"description": "Specific category of the person, e.g. Best Friends, Parent, etc",
 					"maxLength": 40,
-					"default": ""
-			},
-    		"_id": {
-					"type": "string",
-					"description": "Unique identifier for this email address",
-					"maxLength": 50,
 					"default": ""
 			},
 			"created": {
 					"type": "string",
-					"description": "Date and time the email address was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"description": "Date and time the entry was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
 					"format": "date-time",
 					"default": ""
 			},
 			"updated": {
 					"type": "string",
-					"description": "Date and time the email address was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"description": "Date and time the entry was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
 					"format": "date-time",
 					"default": ""
 			}
