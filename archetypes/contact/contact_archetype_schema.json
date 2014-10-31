@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Contact Schema",
+    "description": "The Contact Archetype - Essential properties that define a contact",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [""],
+    "properties": {
+    		"name": {
+    			"type": "string",
+    			"maxLength": 50,
+    			"default": ""
+    		},
+    		"email_address": {
+					"type": "string",
+					"maxLength": 50,
+					"format": "email",
+					"default": ""
+			},
+			"phone_number": {
+    				"type": "string",
+    				"maxLength": 20,
+    				"default": ""
+    		},
+    		"contact_address": {
+    				"type": "string",
+    				"description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.",
+    				"maxLength": 100,
+    				"default": ""
+    		},
+    		"contact_city": {
+    				"type": "string",
+    				"description": "The city or town where the contact is located.",
+    				"maxLength": 100,
+    				"default": ""
+    		},
+    		"contact_region": {
+    				"type": "string",
+    				"description": "The general region where the contact is located.  Can be a US state, or a province, for instance.",
+    				"maxLength": 100,
+    				"default": ""
+    		},
+    		"contact_postal_code": {
+    				"type": "string",
+    				"maxLength": 30,
+    				"default": ""
+    		},
+    		"category": {
+					"type": "string",
+					"description": "General category of the contact, e.g. Friends, Family, etc.",
+					"maxLength": 40,
+					"default": ""
+			},
+			"subcategory": {
+					"type": "string",
+					"description": "Specific category of the contact, e.g. Best Friends, Parent, etc",
+					"maxLength": 40,
+					"default": ""
+			},
+    		"_id": {
+					"type": "string",
+					"description": "Unique identifier for this email address",
+					"maxLength": 50,
+					"default": ""
+			},
+			"created": {
+					"type": "string",
+					"description": "Date and time the email address was created in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			},
+			"updated": {
+					"type": "string",
+					"description": "Date and time the email address was updated in ISO 8601 date standard e.g. YYYY-MM-DDThh:mm:ss.sTZD",
+					"format": "date-time",
+					"default": ""
+			}
+		}
+	}
